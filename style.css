@@ -205,8 +205,6 @@ footer {
     border-radius: 10px;
     width: calc(100% - 40px);
     box-sizing: border-box;
-    margin-left: 525px;
-    margin-right: 535px;
 }
 
 #highlight {
