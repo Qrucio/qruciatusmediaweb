@@ -1,0 +1,104 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    cursor: none;
+}
+
+/* Custom cursor */
+.cursor-dot {
+    width: 7px;
+    height: 7px;
+    background-color: white;
+}
+
+.cursor-outline {
+    width: 17px;
+    height: 17px;
+    border: 3px solid hsla(0, 0%, 100%, 0.5);
+}
+
+.cursor-dot, 
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+.container {
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+#typewriter {
+    font-size: 4em;
+    position: relative;
+}
+
+#typewriter span.word-hover:hover {
+    font-size: 0.7em; /* Decrease font size by 30% on hover */
+    transition: font-size 0.2s ease-in-out; /* Smooth transition */
+}
+
+
+
+.arrow-container {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.arrow {
+    font-size: 3em;
+    color: white;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Customize text selection highlight */
+::selection {
+    background-color: #777; /* Grey highlight color */
+    color: black; /* Text color within the selection */
+    transition: background-color 0.2s ease-in; /* Smooth transition for highlight */
+}
+
+/* Add your existing CSS styles here */
+
+.fade-up {
+    animation: fadeUpAnimation 1s forwards;
+}
+
+@keyframes fadeUpAnimation {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
