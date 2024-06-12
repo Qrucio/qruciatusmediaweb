@@ -9,6 +9,7 @@ body, html {
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
     cursor: none;
+    color: white;
 }
 
 /* Custom cursor */
@@ -45,20 +46,9 @@ body, html {
 #typewriter {
     font-size: 4em;
     position: relative;
-    
-}
-  
-.arrow-container {
-    position: absolute;
-    bottom: 30px;
-    width: 100%;
-    text-align: center;
-}
+    top: 50%; /* Adjust this value for vertical positioning */
+    transform: translateY(-50%); /* Center the content vertically */
 
-.arrow {
-    font-size: 3em;
-    color: white;
-    animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
@@ -75,7 +65,7 @@ body, html {
 
 /* Customize text selection highlight */
 ::selection {
-    background-color: #777; /* Grey highlight color */
-    color: black; /* Text color within the selection */
-    transition: background-color 0.2s ease-in; /* Smooth transition for highlight */
+    background-color: #777;
+    transition: background-color 1s ease-in; 
+    pointer-events: painted;
 }

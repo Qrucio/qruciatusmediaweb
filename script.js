@@ -4,39 +4,55 @@ let lastMouseY = -1;
 document.addEventListener('DOMContentLoaded', (event) => {
     const textElement = document.getElementById('typewriter');
     const text = "Declining Productivity?";
-    const speed = 100;
+    const speed = 85;
     let index = 0;
     let lastScrollTop = 0;
-
+  
     function typeWriter() {
-        if (index < text.length) {
-            textElement.innerHTML += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, speed);
-        } else {
-            highlightDeclining();
-        }
+      if (index < text.length) {
+        textElement.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, speed);
+      } else {
+        separateAndAnimateWords();
+      }
     }
-
-    function highlightDeclining() {
+  
+    function separateAndAnimateWords() {
+        const words = text.split(' ');
+        const decliningSpan = document.createElement('span');
+        decliningSpan.textContent = words[0];
+        decliningSpan.style.position = 'absolute';
+      
+        const productivitySpan = document.createElement('span');
+        productivitySpan.textContent = words[1];
+        productivitySpan.style.position = 'absolute';
+      
+        textElement.appendChild(decliningSpan);
+      
         setTimeout(() => {
-            const splitText = text.split(' ');
-            const highlightedText = splitText.map(word => 
-                word === 'Declining' ? `<span class="word-hover">${word}</span>` : (word === 'Productivity' ? `<span class="word-hover">${word}</span>` : word)
-            ).join(' ');
-            textElement.innerHTML = highlightedText;
-            showArrow();
-            typeWriter();
-        }, 500);
+          textElement.appendChild(productivitySpan);
+          animateWords(decliningSpan, productivitySpan);
+        }, 200); // Add a slight delay before animating the second word
+      }
+      
+  
+    function animateWords(decliningSpan, productivitySpan) {
+      const finalDecliningPosition = '-100px'; // Adjust this value for desired left position
+      const finalProductivityPosition = '0px'; // Adjust this value for desired left position (relative to declining)
+  
+      decliningSpan.animate({
+        left: finalDecliningPosition
+      }, { duration: 500 }).play();
+  
+      productivitySpan.animate({
+        left: finalProductivityPosition
+      }, { duration: 500 }).play();
     }
-
-    function showArrow() {
-        document.getElementById('arrow-container').style.display = 'block';
-    }
-
+  
     typeWriter();
-});
-
+  });
+  
 
 
 const cursorDot = document.querySelector("[data-cursor-dot");
@@ -59,3 +75,5 @@ window.addEventListener("mousemove", function (e){
 
 }) 
 
+
+  
