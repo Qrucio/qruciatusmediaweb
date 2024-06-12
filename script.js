@@ -35,19 +35,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     typeWriter();
-
-    // Detect scroll event
-    window.addEventListener('scroll', () => {
-        const st = window.scrollY || document.documentElement.scrollTop;
-        if (st > lastScrollTop) {
-            // Scroll down, fade out the text
-            textElement.classList.add('fade-up');
-        } else {
-            // Scroll up, fade in the text
-            textElement.classList.remove('fade-up');
-        }
-        lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    });
 });
 
 
@@ -72,21 +59,3 @@ window.addEventListener("mousemove", function (e){
 
 }) 
 
-const element = document.querySelector('p');
-
-element.addEventListener('mousedown', function(event) {
-  // Prevent default selection behavior
-  event.preventDefault();
-
-  // Calculate delay (adjust as needed)
-  const delay = 100; // milliseconds
-
-  // Simulate selection after a delay
-  setTimeout(function() {
-    const selection = window.getSelection();
-    const range = document.createRange();
-    range.setStart(event.target, event.offsetX);
-    range.setEnd(event.target, event.offsetX + event.target.textContent.length);
-    selection.addRange(range);
-  }, delay);
-});

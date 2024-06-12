@@ -45,15 +45,9 @@ body, html {
 #typewriter {
     font-size: 4em;
     position: relative;
+    
 }
-
-#typewriter span.word-hover:hover {
-    font-size: 0.7em; /* Decrease font size by 30% on hover */
-    transition: font-size 0.2s ease-in-out; /* Smooth transition */
-}
-
-
-
+  
 .arrow-container {
     position: absolute;
     bottom: 30px;
@@ -84,21 +78,4 @@ body, html {
     background-color: #777; /* Grey highlight color */
     color: black; /* Text color within the selection */
     transition: background-color 0.2s ease-in; /* Smooth transition for highlight */
-}
-
-/* Add your existing CSS styles here */
-
-.fade-up {
-    animation: fadeUpAnimation 1s forwards;
-}
-
-@keyframes fadeUpAnimation {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-100%);
-    }
 }
