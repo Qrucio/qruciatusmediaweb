@@ -36,7 +36,6 @@ body, html {
     pointer-events: none;
 }
 
-
 .container {
     text-align: center;
     color: white;
@@ -49,11 +48,9 @@ body, html {
 }
 
 #typewriter span.word-hover:hover {
-    font-size: 0.7em; /* Decrease font size by 30% on hover */
+    font-size: 1.2em; /* Decrease font size by 30% on hover */
     transition: font-size 0.2s ease-in-out; /* Smooth transition */
 }
-
-
 
 .arrow-container {
     position: absolute;
@@ -87,19 +84,31 @@ body, html {
     transition: background-color 0.2s ease-in; /* Smooth transition for highlight */
 }
 
-/* Add your existing CSS styles here */
 
-.fade-up {
-    animation: fadeUpAnimation 1s forwards;
-}
-
-@keyframes fadeUpAnimation {
+@keyframes moveToTopLeft {
     0% {
+        transform: translate(0, 0);
         opacity: 1;
-        transform: translateY(0);
     }
     100% {
-        opacity: 0;
-        transform: translateY(-100%);
+        transform: translate(-100px, -100px);
     }
+}
+
+@keyframes moveToTopLeftDelayed {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, -100px);
+    }
+}
+
+.move-to-top-left {
+    animation: moveToTopLeft 1s forwards;
+}
+
+.move-to-top-left-delayed {
+    animation: moveToTopLeftDelayed 1s forwards;
 }
