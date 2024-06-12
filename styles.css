@@ -46,9 +46,26 @@ body, html {
 #typewriter {
     font-size: 4em;
     position: relative;
-    top: 50%; /* Adjust this value for vertical positioning */
-    transform: translateY(-50%); /* Center the content vertically */
+}
 
+#typewriter span.word-hover:hover {
+    font-size: 0.7em; /* Decrease font size by 30% on hover */
+    transition: font-size 0.2s ease-in-out; /* Smooth transition */
+}
+
+
+
+.arrow-container {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.arrow {
+    font-size: 3em;
+    color: white;
+    animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
@@ -65,7 +82,24 @@ body, html {
 
 /* Customize text selection highlight */
 ::selection {
-    background-color: #777;
-    transition: background-color 1s ease-in; 
-    pointer-events: painted;
+    background-color: #777; /* Grey highlight color */
+    color: black; /* Text color within the selection */
+    transition: background-color 0.2s ease-in; /* Smooth transition for highlight */
+}
+
+/* Add your existing CSS styles here */
+
+.fade-up {
+    animation: fadeUpAnimation 1s forwards;
+}
+
+@keyframes fadeUpAnimation {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
 }
